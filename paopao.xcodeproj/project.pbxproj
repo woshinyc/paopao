@@ -265,7 +265,15 @@
 		DF20B4A9178CFD9900648CA3 /* cpSweep1D.c in Sources */ = {isa = PBXBuildFile; fileRef = DF20B4A8178CFD9900648CA3 /* cpSweep1D.c */; };
 		DF20B4AB178CFD9900648CA3 /* cpVect.c in Sources */ = {isa = PBXBuildFile; fileRef = DF20B4AA178CFD9900648CA3 /* cpVect.c */; };
 		DF20B4B2178CFD9900648CA3 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF20B4B1178CFD9900648CA3 /* AppDelegate.cpp */; };
-		DF20B4B5178CFD9900648CA3 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF20B4B4178CFD9900648CA3 /* HelloWorldScene.cpp */; };
+		DF20B4BC178CFDB500648CA3 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = DF20B4BB178CFDB500648CA3 /* ball.png */; };
+		DF20B4BF178D0F0700648CA3 /* ballC.png in Resources */ = {isa = PBXBuildFile; fileRef = DF20B4BD178D0F0700648CA3 /* ballC.png */; };
+		DF20B4C0178D0F0700648CA3 /* ballC.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF20B4BE178D0F0700648CA3 /* ballC.plist */; };
+		DF20B4C3178D0F5100648CA3 /* GameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF20B4C1178D0F5100648CA3 /* GameLayer.cpp */; };
+		DF20B4CD178D573400648CA3 /* SpriteBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF20B4C7178D573400648CA3 /* SpriteBase.cpp */; };
+		DF20B4CE178D573400648CA3 /* ObjectBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF20B4C9178D573400648CA3 /* ObjectBase.cpp */; };
+		DF20B4CF178D573400648CA3 /* Tool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF20B4CB178D573400648CA3 /* Tool.cpp */; };
+		DF20B4D2178D574B00648CA3 /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF20B4D0178D574B00648CA3 /* Ball.cpp */; };
+		DF20B4D6178D661500648CA3 /* LineInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF20B4D4178D661400648CA3 /* LineInfo.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -830,8 +838,22 @@
 		DF20B4AE178CFD9900648CA3 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		DF20B4B0178CFD9900648CA3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		DF20B4B1178CFD9900648CA3 /* AppDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = Classes/AppDelegate.cpp; sourceTree = "<group>"; };
-		DF20B4B3178CFD9900648CA3 /* HelloWorldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = Classes/HelloWorldScene.h; sourceTree = "<group>"; };
-		DF20B4B4178CFD9900648CA3 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
+		DF20B4BB178CFDB500648CA3 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
+		DF20B4BD178D0F0700648CA3 /* ballC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ballC.png; sourceTree = "<group>"; };
+		DF20B4BE178D0F0700648CA3 /* ballC.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ballC.plist; sourceTree = "<group>"; };
+		DF20B4C1178D0F5100648CA3 /* GameLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLayer.cpp; sourceTree = "<group>"; };
+		DF20B4C2178D0F5100648CA3 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
+		DF20B4C4178D483500648CA3 /* enumWhole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = enumWhole.h; sourceTree = "<group>"; };
+		DF20B4C7178D573400648CA3 /* SpriteBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteBase.cpp; sourceTree = "<group>"; };
+		DF20B4C8178D573400648CA3 /* SpriteBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteBase.h; sourceTree = "<group>"; };
+		DF20B4C9178D573400648CA3 /* ObjectBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectBase.cpp; sourceTree = "<group>"; };
+		DF20B4CA178D573400648CA3 /* ObjectBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectBase.h; sourceTree = "<group>"; };
+		DF20B4CB178D573400648CA3 /* Tool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tool.cpp; sourceTree = "<group>"; };
+		DF20B4CC178D573400648CA3 /* Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tool.h; sourceTree = "<group>"; };
+		DF20B4D0178D574B00648CA3 /* Ball.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ball.cpp; sourceTree = "<group>"; };
+		DF20B4D1178D574B00648CA3 /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
+		DF20B4D4178D661400648CA3 /* LineInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineInfo.cpp; sourceTree = "<group>"; };
+		DF20B4D5178D661500648CA3 /* LineInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineInfo.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -914,6 +936,9 @@
 				DF20B161178CFD9100648CA3 /* Icon@2x.png */,
 				DF20B163178CFD9100648CA3 /* iTunesArtwork */,
 				DF20B165178CFD9100648CA3 /* Info.plist */,
+				DF20B4BB178CFDB500648CA3 /* ball.png */,
+				DF20B4BD178D0F0700648CA3 /* ballC.png */,
+				DF20B4BE178D0F0700648CA3 /* ballC.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1978,10 +2003,45 @@
 			children = (
 				DF20B4B0178CFD9900648CA3 /* AppDelegate.h */,
 				DF20B4B1178CFD9900648CA3 /* AppDelegate.cpp */,
-				DF20B4B3178CFD9900648CA3 /* HelloWorldScene.h */,
-				DF20B4B4178CFD9900648CA3 /* HelloWorldScene.cpp */,
+				DF20B4C1178D0F5100648CA3 /* GameLayer.cpp */,
+				DF20B4C2178D0F5100648CA3 /* GameLayer.h */,
+				DF20B4C4178D483500648CA3 /* enumWhole.h */,
+				DF20B4D3178D65FE00648CA3 /* 行信息 */,
+				DF20B4C6178D572400648CA3 /* 基类 */,
+				DF20B4C5178D570300648CA3 /* 小球 */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		DF20B4C5178D570300648CA3 /* 小球 */ = {
+			isa = PBXGroup;
+			children = (
+				DF20B4D0178D574B00648CA3 /* Ball.cpp */,
+				DF20B4D1178D574B00648CA3 /* Ball.h */,
+			);
+			name = "小球";
+			sourceTree = "<group>";
+		};
+		DF20B4C6178D572400648CA3 /* 基类 */ = {
+			isa = PBXGroup;
+			children = (
+				DF20B4C7178D573400648CA3 /* SpriteBase.cpp */,
+				DF20B4C8178D573400648CA3 /* SpriteBase.h */,
+				DF20B4C9178D573400648CA3 /* ObjectBase.cpp */,
+				DF20B4CA178D573400648CA3 /* ObjectBase.h */,
+				DF20B4CB178D573400648CA3 /* Tool.cpp */,
+				DF20B4CC178D573400648CA3 /* Tool.h */,
+			);
+			name = "基类";
+			sourceTree = "<group>";
+		};
+		DF20B4D3178D65FE00648CA3 /* 行信息 */ = {
+			isa = PBXGroup;
+			children = (
+				DF20B4D4178D661400648CA3 /* LineInfo.cpp */,
+				DF20B4D5178D661500648CA3 /* LineInfo.h */,
+			);
+			name = "行信息";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2047,6 +2107,9 @@
 				DF20B164178CFD9100648CA3 /* iTunesArtwork in Resources */,
 				DF20B200178CFD9300648CA3 /* ChangeLog in Resources */,
 				DF20B36A178CFD9600648CA3 /* project.pbxproj in Resources */,
+				DF20B4BC178CFDB500648CA3 /* ball.png in Resources */,
+				DF20B4BF178D0F0700648CA3 /* ballC.png in Resources */,
+				DF20B4C0178D0F0700648CA3 /* ballC.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2292,7 +2355,12 @@
 				DF20B4A9178CFD9900648CA3 /* cpSweep1D.c in Sources */,
 				DF20B4AB178CFD9900648CA3 /* cpVect.c in Sources */,
 				DF20B4B2178CFD9900648CA3 /* AppDelegate.cpp in Sources */,
-				DF20B4B5178CFD9900648CA3 /* HelloWorldScene.cpp in Sources */,
+				DF20B4C3178D0F5100648CA3 /* GameLayer.cpp in Sources */,
+				DF20B4CD178D573400648CA3 /* SpriteBase.cpp in Sources */,
+				DF20B4CE178D573400648CA3 /* ObjectBase.cpp in Sources */,
+				DF20B4CF178D573400648CA3 /* Tool.cpp in Sources */,
+				DF20B4D2178D574B00648CA3 /* Ball.cpp in Sources */,
+				DF20B4D6178D661500648CA3 /* LineInfo.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2371,6 +2439,7 @@
 				GCC_PREFIX_HEADER = paopao/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = paopao/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/paopao/libs/cocos2dx/platform/third_party/ios/libraries\"",
@@ -2395,6 +2464,7 @@
 				GCC_PREFIX_HEADER = paopao/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = paopao/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/paopao/libs/cocos2dx/platform/third_party/ios/libraries\"",
@@ -2430,6 +2500,7 @@
 				DF20B4BA178CFD9900648CA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

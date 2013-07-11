@@ -10,7 +10,7 @@
 
 #include "cocos2d.h"
 #include "SimpleAudioEngine.h"
-#include "HelloWorldScene.h"
+#include "GameLayer.h"
 
 USING_NS_CC;
 using namespace CocosDenshion;
@@ -29,6 +29,21 @@ bool AppDelegate::applicationDidFinishLaunching()
     // initialize director
     CCDirector *pDirector = CCDirector::sharedDirector();
     pDirector->setOpenGLView(CCEGLView::sharedOpenGLView());
+    CCSize screenSize = CCEGLView::sharedOpenGLView()->getFrameSize();
+    
+    CCSize designSize = CCSizeMake(480*2, 320*2);
+    // CCFileUtils* pFileUtils = CCFileUtils::sharedFileUtils();
+    
+    //    if (screenSize.height > 320)
+    //    {
+    //        CCSize resourceSize = CCSizeMake(640, 960);
+    //        std::vector<std::string> searchPaths;
+    //        searchPaths.push_back("hd");
+    //        pFileUtils->setSearchPaths(searchPaths);
+    //        pDirector->setContentScaleFactor(resourceSize.height/designSize.height);
+    //    }
+    
+    CCEGLView::sharedOpenGLView()->setDesignResolutionSize(designSize.width, designSize.height, kResolutionShowAll);
 
     // turn on display FPS
     pDirector->setDisplayStats(true);
@@ -37,7 +52,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     pDirector->setAnimationInterval(1.0 / 60);
 
     // create a scene. it's an autorelease object
-    CCScene *pScene = HelloWorld::scene();
+    CCScene *pScene = GameLayer::scene();
 
     // run
     pDirector->runWithScene(pScene);

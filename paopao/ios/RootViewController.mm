@@ -60,6 +60,16 @@
 
 - (void)viewDidUnload {
     [super viewDidUnload];
+    unichar c;
+    switch (c) {
+        case '1'...'3':
+            ;
+            break;
+            
+        default:
+            break;
+    }
+   
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
