@@ -192,9 +192,12 @@ void GameLayer::findOtherSame(Ball *sameBall)
         Ball *thisBall=( Ball *)allPaopaoArray->objectAtIndex(n);
         if (thisBall->isDrop==false) {
             if (sameBall->isCollision(thisBall)&&thisBall!=beFireBall&&sameBall->typeNum==thisBall->typeNum) {
-                thisBall->isDrop=true;
-                sameBall->isDrop=true;
-                beFireBall->isDrop=true;
+                if (sameBall!=beFireBall) {
+                    thisBall->isDrop=true;
+                    sameBall->isDrop=true;
+                    beFireBall->isDrop=true;
+                }
+               
                 this->findOtherSame(thisBall);
             }
         }
