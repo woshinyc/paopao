@@ -152,7 +152,28 @@ void GameLayer::step()
     if (beFireBall!=NULL&&beFireBall->speed>0) {
         beFireBall->setPositionX(beFireBall->getPosition().x+beFireBall->speedX);
         beFireBall->setPositionY(beFireBall->getPosition().y+beFireBall->speedY);
- 
+        CCSize spriteSize=beFireBall->getContentSize();
+        CCPoint upPoint   =beFireBall->convertToWorldSpace(ccp(spriteSize.width/2, spriteSize.height));
+        CCPoint downPoint  =beFireBall->convertToWorldSpace(ccp(spriteSize.width/2,0));
+        CCPoint leftPoint  =beFireBall->convertToWorldSpace(ccp(0,spriteSize.height/2));
+        CCPoint rightPoint =beFireBall->convertToWorldSpace(ccp(spriteSize.width,spriteSize.height/2));
+        //setTextureRect
+        //*****************得到碰撞点
+        
+        //*****************碰撞墙壁
+        if (leftPoint.x<3) {
+            beFireBall->speedX=fabsf(beFireBall->speedX);
+        }
+        
+        if (rightPoint.x>allSize.width-3) {
+            beFireBall->speedX=-fabsf(beFireBall->speedX);
+        }
+        if (upPoint.y>allSize.height-2) {
+            beFireBall->beStop();
+            pengzhuang=true;
+            allPaopaoArray->addObject(beFireBall);
+        }
+
     }
     if (allPaopaoArray!=NULL) {
         int nub=allPaopaoArray->count();
@@ -191,7 +212,7 @@ void GameLayer::findOtherSame(Ball *sameBall)
     for (int n=0; n<nub; n++) {
         Ball *thisBall=( Ball *)allPaopaoArray->objectAtIndex(n);
         if (thisBall->isDrop==false) {
-            if (sameBall->isCollision(thisBall)&&thisBall!=beFireBall&&sameBall->typeNum==thisBall->typeNum) {
+            if (thisBall!=sameBall&&sameBall->isCollision(thisBall)&&thisBall!=beFireBall&&sameBall->typeNum==thisBall->typeNum) {
                 if (sameBall!=beFireBall) {
                     thisBall->isDrop=true;
                     sameBall->isDrop=true;
