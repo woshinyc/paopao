@@ -21,8 +21,8 @@ public:
     int getLineNub();
     int getNubInLine();
     bool isDrop;
-    
- 
+
+    void beStop();
     
 };
 

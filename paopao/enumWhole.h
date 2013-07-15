@@ -10,7 +10,7 @@
 #define paopao_enumWhole_h
 #define fullNum  (int)(worldWidth/paopaoWidth)
 #define ballTypeNum arc4random()%6+1
-#define defaultLine  4
+#define defaultLine  1
 #define paopaoWidth 28
 #define paopaoHeight 28
 #define paopaoSpeed 9

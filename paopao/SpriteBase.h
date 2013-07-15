@@ -30,10 +30,13 @@ public:
      cocos2d::CCRect getRectangle();
       void setSpeedAndRadian(float _speed,float _radian);
        bool isCollision(SpriteBase *sp);//检测是否碰撞
+       bool isCollision(SpriteBase *sp ,float num);
+    bool isRoundCollision(SpriteBase *sp);
+    void *mainLayer;
 private:
      int healthNum;          //生命值
  
-  
+ 
   
   
 };

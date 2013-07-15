@@ -60,6 +60,9 @@ bool GameLayer::init()
 #pragma mark-创建泡泡
 void GameLayer::getAlinePaoPao(LineType type,int lineNum)
 {
+    if (lineNum==0) {
+        firstLineIsFull=type==fullLine?true:false;
+    }
     float paoHeight =allSize.height-paopaoWidth*lineNum;
     if (allPaopaoArray==NULL) {
         allPaopaoArray=CCArray::create();
@@ -101,6 +104,8 @@ void GameLayer::createBall()
 {
     Ball *aBall=Ball::getBall();
     aBall->setPosition(paopaoCPP);
+    aBall->setAnchorPoint(ccp(0, 1));
+    aBall->mainLayer=this;
     spriteBatch->addChild(aBall);
     
     beFireBall=aBall;
@@ -149,6 +154,41 @@ void GameLayer::ccTouchesEnded(CCSet *pTouches,CCEvent *pEvent)
 void GameLayer::step()
 {
     bool pengzhuang =false;
+    
+    if (allPaopaoArray!=NULL) {
+        int nub=allPaopaoArray->count();
+        for (int n=0; n<nub; n++) {
+            Ball *thisBall=( Ball *)allPaopaoArray->objectAtIndex(n);
+            if (thisBall->isDrop==false &&beFireBall->isRoundCollision(thisBall)) {
+//                CCRect sp1Rect=beFireBall->getRectangle();
+//                CCRect sp2Rect=thisBall->getRectangle();
+//                CCLog("sp1.x=%f.y=%f w=%f h =%f",sp1Rect.origin.x,allSize.height-sp1Rect.origin.y,sp1Rect.size.width,sp1Rect.size.height);
+//                 CCLog("sp2.x=%f.y=%f w=%f h =%f",sp2Rect.origin.x,allSize.height-sp2Rect.origin.y,sp2Rect.size.width,sp2Rect.size.height);
+                beFireBall->beStop();
+                pengzhuang=true;
+                allPaopaoArray->addObject(beFireBall);
+                break;
+                
+            }
+            if (thisBall->isDrop) {
+                thisBall->setPositionY(thisBall->getPositionY()-10);
+            }
+        }
+        //this->findNoKeepBall();
+    }
+
+    if (pengzhuang) {
+        this->findOtherSame(beFireBall);
+        this->createBall();
+    }
+    int endNub=allPaopaoArray->count();
+    for (int n=endNub-1; n>=0; n--) {
+        Ball *thisBall=( Ball *)allPaopaoArray->objectAtIndex(n);
+        if (thisBall->getPositionY()<0) {
+            thisBall->removeFromParent();
+            allPaopaoArray->removeObject(thisBall);
+        }
+    }
     if (beFireBall!=NULL&&beFireBall->speed>0) {
         beFireBall->setPositionX(beFireBall->getPosition().x+beFireBall->speedX);
         beFireBall->setPositionY(beFireBall->getPosition().y+beFireBall->speedY);
@@ -173,35 +213,7 @@ void GameLayer::step()
             pengzhuang=true;
             allPaopaoArray->addObject(beFireBall);
         }
-
-    }
-    if (allPaopaoArray!=NULL) {
-        int nub=allPaopaoArray->count();
-        for (int n=0; n<nub; n++) {
-            Ball *thisBall=( Ball *)allPaopaoArray->objectAtIndex(n);
-            if (thisBall->isDrop==false &&beFireBall->isCollision(thisBall)) {
-                beFireBall->beStop();
-                pengzhuang=true;
-                allPaopaoArray->addObject(beFireBall);
-                
-            }
-            if (thisBall->isDrop) {
-                thisBall->setPositionY(thisBall->getPositionY()-10);
-            }
-        }
-    }
-
-    if (pengzhuang) {
-        this->findOtherSame(beFireBall);
-        this->createBall();
-    }
-    int endNub=allPaopaoArray->count();
-    for (int n=endNub-1; n>=0; n--) {
-        Ball *thisBall=( Ball *)allPaopaoArray->objectAtIndex(n);
-        if (thisBall->getPositionY()<0) {
-            thisBall->removeFromParent();
-            allPaopaoArray->removeObject(thisBall);
-        }
+        
     }
 
 }
@@ -224,6 +236,26 @@ void GameLayer::findOtherSame(Ball *sameBall)
         }
     }
 
+}
+void GameLayer::findNoKeepBall()
+{
+    int nub=allPaopaoArray->count();
+    for (int n=nub-1; n>=0; n--) {
+          Ball *thisBall=( Ball *)allPaopaoArray->objectAtIndex(n);
+        if (thisBall->isDrop==false) {
+            
+            if (thisBall->getPositionY()<allSize.height-paopaoHeight) {
+                thisBall->isDrop=true;
+                for (int nn=nub-1; nn>=0; nn--) {
+                    Ball *otherBall=( Ball *)allPaopaoArray->objectAtIndex(n);
+                    if (otherBall->getPositionY()>thisBall->getPositionY()&&otherBall->isCollision(thisBall)) {
+                        
+                        thisBall->isDrop=false;
+                    }
+                }
+            }
+        }
+    }
 }
 
 

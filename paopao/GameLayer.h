@@ -32,6 +32,8 @@ public:
     CCSpriteBatchNode *spriteBatch;
     CREATE_FUNC(GameLayer);
     Ball *beFireBall;
+    bool firstLineIsFull;
+    void findNoKeepBall();
     
     
     
